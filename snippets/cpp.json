@@ -2,7 +2,8 @@
   "for": {
     "prefix": "for",
     "body": [
-      "for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; $2++) {",
+      "for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; $2++)",
+      "{",
       "\t$0",
       "}"
     ],
@@ -11,7 +12,8 @@
   "forr": {
     "prefix": "forr",
     "body": [
-      "for (${1:size_t} ${2:i} = ${3:length} - 1; $2 >= ${4:0}; $2--) {",
+      "for (${1:size_t} ${2:i} = ${3:length} - 1; $2 >= ${4:0}; $2--)"
+      "{",
       "\t$0",
       "}"
     ],
@@ -19,12 +21,12 @@
   },
   "do": {
     "prefix": "do",
-    "body": ["do {", "\t$0", "} while($1);"],
+    "body": ["do", "{", "\t$0", "} while($1);"],
     "description": "Code snippet for do...while loop"
   },
   "while": {
     "prefix": "while",
-    "body": ["while ($1) {", "\t$2", "}"],
+    "body": ["while ($1)", "{", "\t$2", "}"],
     "description": ""
   },
   "foreach": {
@@ -34,22 +36,22 @@
   },
   "if": {
     "prefix": "if",
-    "body": ["if ($1) {", "\t$0", "}"],
+    "body": ["if ($1)", "{", "\t$0", "}"],
     "description": "Code snippet for if statement"
   },
   "else": {
     "prefix": "else",
-    "body": ["else {", "\t$0", "}"],
+    "body": ["else", "{", "\t$0", "}"],
     "description": "Code snippet for else statement"
   },
   "else if": {
     "prefix": "else if",
-    "body": ["else if ($1) {", "\t$0", "}"],
+    "body": ["else if ($1)", "{", "\t$0", "}"],
     "description": "Code snippet for else-if statement"
   },
   "enum": {
     "prefix": "enum",
-    "body": ["enum ${1:MyEnum} {", "\t$0", "};"],
+    "body": ["enum ${1:MyEnum}", "{", "\t$0", "};"],
     "description": "Code snippet for enum"
   },
   "enum class": {
@@ -60,7 +62,8 @@
   "class": {
     "prefix": "class",
     "body": [
-      "class ${1:MyClass} {",
+      "class ${1:MyClass}",
+      "{",
       "public:",
       "\t$1();",
       "\t$1($1 &&) = default;",
@@ -84,7 +87,8 @@
   "eclass": {
     "prefix": "eclass",
     "body": [
-      "class ${1:MyClass} {",
+      "class ${1:MyClass}",
+      "{",
       "public:",
       "\t$2",
       "private:",
@@ -97,7 +101,8 @@
   "qclass": {
     "prefix": "qclass",
     "body": [
-      "class ${1:MyClass} : public QObject {",
+      "class ${1:MyClass} : public QObject",
+      "{",
       "\tQ_OBJECT;",
       "public:",
       "\nexplicit $1(QObject *parent = nullptr);",
@@ -113,7 +118,8 @@
   "classi": {
     "prefix": "classi",
     "body": [
-      "class ${1:MyClass} {",
+      "class ${1:MyClass}",
+      "{",
       "public:",
       "\t$1() = default;",
       "\t$1($1 &&) = default;",
@@ -130,12 +136,12 @@
   },
   "interface": {
     "prefix": "interface",
-    "body": ["__interface I${1:Interface} {", "\t$0", "};"],
+    "body": ["__interface I${1:Interface}", "{", "\t$0", "};"],
     "description": "Code snippet for interface (Visual C++)"
   },
   "namespace": {
     "prefix": "namespace",
-    "body": ["namespace ${1:MyNamespace} {", "\t$0", "}"]
+    "body": ["namespace ${1:MyNamespace}", "{", "\t$0", "} // $1"]
   },
   "#ifdef": {
     "prefix": "#ifdef",
@@ -154,18 +160,19 @@
   },
   "struct": {
     "prefix": "struct",
-    "body": ["struct ${1:MyStruct} {", "\t$0", "};"],
+    "body": ["struct ${1:MyStruct}", "{", "\t$0", "};"],
     "description": "Code snippet for struct"
   },
   "switch": {
     "prefix": "switch",
-    "body": ["switch (${1:switch_on}) {", "\tdefault:", "\t\t$0", "\t\tbreak;", "}"],
+    "body": ["switch (${1:switch_on})", "{", "\tdefault:", "\t\t$0", "\t\tbreak;", "}"],
     "description": "Code snippet for switch statement"
   },
   "try": {
     "prefix": "try",
     "body": [
-      "try {",
+      "try",
+      "{",
       "\t",
       "}",
       "catch (const std::exception&) {",
@@ -176,12 +183,17 @@
   },
   "union": {
     "prefix": "union",
-    "body": ["union ${1:MyUnion} {", "\t$0", "};"],
+    "body": ["union ${1:MyUnion}", "{", "\t$0", "};"],
     "description": "Code snippet for union"
+  },
+  "coutl": {
+    "prefix": "coutl",
+    "body": ["std::cout << \"${1:message}\" << std::endl;"],
+    "description": "Code snippet for printing to std::cout, provided the header is set"
   },
   "cout": {
     "prefix": "cout",
-    "body": ["std::cout << \"${1:message}\" << std::endl;"],
+    "body": ["std::cout << \"${1:message}\" << '\n';"],
     "description": "Code snippet for printing to std::cout, provided the header is set"
   },
   "cin": {
@@ -237,7 +249,8 @@
   "Main function template": {
     "prefix": "main",
     "body": [
-      "int main (int argc, char *argv[]) {",
+      "int main (int argc, char *argv[])",
+      "{",
       "\t$1",
       "\treturn 0;",
       "}"
