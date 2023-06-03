@@ -86,16 +86,18 @@
       "\t$2",
       "};",
       "",
-      "$1::$1() {",
+      "$1::$1()",
+      "{",
       "}",
       "",
-      "$1::~$1() {",
+      "$1::~$1()",
+      "{",
       "}"
     ],
     "description": "Code snippet for class"
   },
-  "eclass": {
-    "prefix": "eclass",
+  "classe": {
+    "prefix": "classe",
     "body": [
       "class ${1:MyClass}",
       "{",
@@ -108,8 +110,8 @@
     ],
     "description": "Code snippet for empty class"
   },
-  "qclass": {
-    "prefix": "qclass",
+  "classq": {
+    "prefix": "classq",
     "body": [
       "class ${1:MyClass} : public QObject",
       "{",
@@ -168,9 +170,29 @@
     "body": ["#if ${1:0}", "$0", "#endif // $1"],
     "description": "Code snippet for #if"
   },
+  "structe": {
+    "prefix": "structe",
+    "body": ["struct ${1:MyStruct}", "{", "\t$0", "};"],
+    "description": "Code snippet for empty struct"
+  },
   "struct": {
     "prefix": "struct",
-    "body": ["struct ${1:MyStruct}", "{", "\t$0", "};"],
+    "body": [
+      "struct ${1:MyStruct}",
+      "{",
+      "public:",
+      "\t$1();",
+      "\t~$1();",
+      "};$2",
+      "",
+      "$1::$1()",
+      "{",
+      "}",
+      "",
+      "$1::~$1()",
+      "{",
+      "}"
+],
     "description": "Code snippet for struct"
   },
   "switch": {
