@@ -225,12 +225,12 @@
   },
   "coutln": {
     "prefix": "coutln",
-    "body": ["std::cout << \"${1:message}\" << '\n';"],
+    "body": ["std::cout << \"${1:message}\" << '\\n';"],
     "description": "Code snippet for printing single line non-flushing std::cout, provided the header is set"
   },
   "cout": {
     "prefix": "cout",
-    "body": ["std::cout << \"${1:message}\" << '\n';"],
+    "body": ["std::cout << \"${1:message}\" << '\\n';"],
     "description": "Code snippet for printing to std::cout, provided the header is set"
   },
   "cin": {
