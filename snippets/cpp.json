@@ -221,7 +221,12 @@
   "coutl": {
     "prefix": "coutl",
     "body": ["std::cout << \"${1:message}\" << std::endl;"],
-    "description": "Code snippet for printing to std::cout, provided the header is set"
+    "description": "Code snippet for printing single line std::cout, provided the header is set"
+  },
+  "coutln": {
+    "prefix": "coutln",
+    "body": ["std::cout << \"${1:message}\" << '\n';"],
+    "description": "Code snippet for printing single line non-flushing std::cout, provided the header is set"
   },
   "cout": {
     "prefix": "cout",
