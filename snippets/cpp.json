@@ -207,7 +207,8 @@
       "{",
       "\t",
       "}",
-      "catch (const std::exception&) {",
+      "catch (const std::exception&)"
+      "{",
       "\t$1",
       "}"
     ],
