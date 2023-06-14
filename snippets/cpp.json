@@ -12,7 +12,7 @@
   "for": {
     "prefix": "for",
     "body": [
-      "for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; $2++)",
+      "for (${1:size_t} ${2:i} = ${3:0}; $2 < ${4:length}; ++$2)",
       "{",
       "\t$0",
       "}"
@@ -22,7 +22,7 @@
   "forr": {
     "prefix": "forr",
     "body": [
-      "for (${1:size_t} ${2:i} = ${3:length} - 1; $2 >= ${4:0}; $2--)",
+      "for (${1:size_t} ${2:i} = ${3:length} - 1; $2 >= ${4:0}; --$2)",
       "{",
       "\t$0",
       "}"
@@ -205,11 +205,11 @@
     "body": [
       "try",
       "{",
-      "\t",
-      "}",
-      "catch (const std::exception&)"
-      "{",
       "\t$1",
+      "}",
+      "catch (const std::exception &${2:e})"
+      "{",
+      "\tstd::cout << \"${3:message}\" <<$4 std::endl;",
       "}"
     ],
     "description": "Code snippet for try catch"
@@ -221,17 +221,17 @@
   },
   "coutl": {
     "prefix": "coutl",
-    "body": ["std::cout << \"${1:message}\" << std::endl;"],
+    "body": ["std::cout << \"${1:message}\" <<$2 std::endl;"],
     "description": "Code snippet for printing single line std::cout, provided the header is set"
   },
   "coutln": {
     "prefix": "coutln",
-    "body": ["std::cout << \"${1:message}\" << '\\n';"],
+    "body": ["std::cout << \"${1:message}\" <<$2 '\\n';"],
     "description": "Code snippet for printing single line non-flushing std::cout, provided the header is set"
   },
   "cout": {
     "prefix": "cout",
-    "body": ["std::cout << \"${1:message}\" << '\\n';"],
+    "body": ["std::cout << \"${1:message}\" <<$2 '\\n';"],
     "description": "Code snippet for printing to std::cout, provided the header is set"
   },
   "cin": {
