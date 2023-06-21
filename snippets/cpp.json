@@ -207,7 +207,7 @@
       "{",
       "\t$1",
       "}",
-      "catch (const std::exception &${2:e})"
+      "catch (const std::exception &${2:e})",
       "{",
       "\tstd::cout << \"${3:message}\" <<$4 std::endl;",
       "}"
@@ -224,15 +224,10 @@
     "body": ["std::cout << \"${1:message}\" <<$2 std::endl;"],
     "description": "Code snippet for printing single line std::cout, provided the header is set"
   },
-  "coutln": {
-    "prefix": "coutln",
-    "body": ["std::cout << \"${1:message}\" <<$2 '\\n';"],
-    "description": "Code snippet for printing single line non-flushing std::cout, provided the header is set"
-  },
   "cout": {
     "prefix": "cout",
     "body": ["std::cout << \"${1:message}\" <<$2 '\\n';"],
-    "description": "Code snippet for printing to std::cout, provided the header is set"
+    "description": "Code snippet for printing single line non-flushing std::cout, provided the header is set"
   },
   "cin": {
     "prefix": "cin",
